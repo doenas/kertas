@@ -1,0 +1,408 @@
+/* =========================================
+   STYLE.CSS - KERTAS CALISTUNG (KIDS & PRO)
+   Tema: Classic Layout + Ultra Luxury Glass Boxes
+   100% Mobile Fit
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #4A90E2;      
+    --secondary: #FFC107;    
+    --accent: #FF5252;       
+    --success: #00D09C;      
+    --text-dark: #1E293B;
+    --text-light: #64748B;
+    
+    /* Variable Kotak Mewah Kaca (Glassmorphism) */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.9);
+}
+
+/* --- DASAR --- */
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    margin: 0; padding: 0; overflow-x: hidden;
+    
+    /* Background Mewah Halus */
+    background-color: #F8FAFC;
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(343, 100%, 86%, 0.5) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(205, 100%, 84%, 0.5) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(43, 100%, 82%, 0.5) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(153, 100%, 84%, 0.5) 0px, transparent 50%);
+    background-attachment: fixed; 
+}
+
+h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; margin: 0; }
+a { text-decoration: none; }
+ul { list-style: none; padding: 0; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* --- ANIMASI --- */
+@keyframes floatAnim {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes shine { 
+    0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } 
+}
+
+/* --- TOMBOL --- */
+.btn-yellow, .btn-blue, .btn-white {
+    display: inline-block; padding: 14px 32px; border-radius: 50px; 
+    font-weight: 700; font-size: 16px; transition: all 0.3s ease; 
+    text-align: center; border: 2px solid white; cursor: pointer;
+}
+.btn-yellow {
+    background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%); color: #78350F;
+    box-shadow: 0 6px 0px #D97706, 0 15px 20px rgba(245, 158, 11, 0.3);
+}
+.btn-yellow:hover { transform: translateY(-3px); box-shadow: 0 9px 0px #D97706, 0 20px 25px rgba(245, 158, 11, 0.4); }
+.btn-yellow:active { transform: translateY(4px); box-shadow: 0 2px 0px #D97706, 0 5px 10px rgba(245, 158, 11, 0.3); }
+
+.btn-blue {
+    background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%); color: white;
+    box-shadow: 0 6px 0px #1D4ED8, 0 15px 20px rgba(37, 99, 235, 0.3);
+}
+.btn-blue:hover { transform: translateY(-3px); box-shadow: 0 9px 0px #1D4ED8, 0 20px 25px rgba(37, 99, 235, 0.4); }
+.btn-blue:active { transform: translateY(4px); box-shadow: 0 2px 0px #1D4ED8, 0 5px 10px rgba(37, 99, 235, 0.3); }
+
+.btn-white {
+    background: white; color: var(--primary);
+    box-shadow: 0 6px 0px #CBD5E1, 0 15px 20px rgba(0, 0, 0, 0.05);
+}
+.btn-white:hover { transform: translateY(-3px); color: var(--accent); box-shadow: 0 9px 0px #CBD5E1, 0 20px 25px rgba(0,0,0,0.08); }
+
+/* --- HEADER --- */
+header {
+    background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 15px 0; position: sticky; top: 0; z-index: 999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02); border-bottom: 1px solid var(--glass-border);
+    border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+}
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 45px; }
+#nav-menu { display: flex; gap: 30px; }
+#nav-menu a { color: var(--text-dark); font-weight: 600; font-size: 15px; transition: 0.3s; }
+#nav-menu a:hover { color: var(--primary); }
+.nav-actions { display: flex; align-items: center; gap: 15px; }
+.hamburger { display: none; font-size: 24px; color: var(--primary); cursor: pointer; }
+
+/* --- HERO --- */
+.hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 0; gap: 50px; }
+.hero-text { flex: 1; }
+.badge {
+    display: inline-block; background: var(--glass-bg); color: var(--success);
+    backdrop-filter: blur(10px); padding: 10px 22px; border-radius: 50px;
+    font-weight: 700; font-size: 14px; margin-bottom: 20px;
+    border: 1px solid var(--glass-border); box-shadow: 0 5px 15px rgba(0, 208, 156, 0.15);
+}
+.hero-text h1 { font-size: 52px; line-height: 1.2; color: var(--text-dark); margin-bottom: 20px; text-shadow: 2px 2px 0px rgba(255,255,255,0.8); }
+.hero-text h1 span { color: var(--primary); }
+.hero-text p { font-size: 17px; color: var(--text-light); margin-bottom: 35px; line-height: 1.6; font-weight: 500;}
+.hero-buttons { display: flex; gap: 15px; }
+/* Pastikan Hero Image tetap proporsional dan tidak merusak layout */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-kids {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.title { text-align: center; margin-bottom: 50px; }
+.title h2 { font-size: 40px; color: var(--text-dark); text-shadow: 2px 2px 0px rgba(255,255,255,0.8); }
+.title p { color: var(--text-light); margin-top: 10px; font-size: 16px; font-weight: 500;}
+
+/* =========================================
+   🌟 KOTAK KEUNGGULAN (LUXURY GLASS) 🌟
+========================================= */
+.features { padding: 80px 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.feature-box {
+    background: var(--glass-bg); 
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    padding: 40px 25px; border-radius: 35px; text-align: center;
+    border: 1px solid var(--glass-border);  
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04); 
+    transition: 0.4s;
+}
+.feature-box:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 30px 50px rgba(74, 144, 226, 0.1); 
+    border-color: #ffffff; 
+    background: rgba(255,255,255,0.85);
+}
+.icon-circle { 
+    width: 80px; height: 80px; margin: 0 auto 20px; 
+    background: linear-gradient(135deg, #ffffff, #EBF4FF); 
+    border-radius: 50%; display: flex; justify-content: center; align-items: center; 
+    border: 3px solid white; box-shadow: 0 10px 20px rgba(74, 144, 226, 0.15);
+    font-size: 32px; color: var(--primary);
+}
+.icon-circle img { width: 45px; height: 45px; object-fit: contain; }
+.feature-box h4 { font-size: 22px; margin-bottom: 10px; color: var(--text-dark); font-weight: 700;}
+.feature-box p { font-size: 14px; color: var(--text-light); line-height: 1.6; font-weight: 500;}
+
+/* =========================================
+   🌟 KOTAK PROGRAM (LUXURY GLASS) 🌟
+========================================= */
+.program { padding: 80px 0; }
+.program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card {
+    background: var(--glass-bg); 
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    padding: 40px 30px; border-radius: 35px; text-align: center; 
+    transition: 0.4s;
+    border: 1px solid var(--glass-border); 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+}
+.card:hover { 
+    border-color: var(--primary); 
+    box-shadow: 0 30px 50px rgba(74,144,226,0.1); 
+    transform: translateY(-10px); 
+    background: rgba(255,255,255,0.85); 
+}
+.card .icon { height: 70px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; font-size: 60px;}
+.card .icon img { max-height: 100%; width: auto; object-fit: contain;}
+.card h3 { font-size: 24px; margin-bottom: 15px; color: var(--text-dark); font-weight: 700;}
+.card p { font-size: 14px; color: var(--text-light); line-height: 1.6; font-weight: 500;}
+
+/* =========================================
+   🌟 KOTAK PAKET BELAJAR (MEWAH VIP & SHINE) 🌟
+========================================= */
+.pricing { padding: 80px 0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center; }
+.price-card {
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    padding: 50px 40px; border-radius: 40px; text-align: center; position: relative;
+    border: 1px solid var(--glass-border); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    z-index: 1;
+}
+
+/* Kilau Cahaya (Shine) Tertahan di dalam kotak */
+.price-card::before {
+    content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg); animation: shine 6s infinite; z-index: 0;
+    clip-path: inset(0 0 0 0 round 40px); pointer-events: none;
+}
+.price-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08); background: rgba(255,255,255,0.9); border-color: white;}
+
+.price-card.popular {
+    transform: scale(1.06); 
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.9) 100%);
+    border: 2px solid var(--primary); 
+    box-shadow: 0 30px 60px rgba(74, 144, 226, 0.15); 
+    z-index: 2;
+}
+.price-card.popular:hover { transform: scale(1.06) translateY(-15px); }
+
+/* Pita Harga Populer (Anti Terpotong) */
+.ribbon {
+    position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, #FF5252 0%, #E11D48 100%); color: white;
+    padding: 10px 30px; border-radius: 50px; font-size: 14px; font-weight: 700; white-space: nowrap; z-index: 10;
+    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.3); border: 2px solid white;
+}
+.price-card > * { position: relative; z-index: 2; }
+.price-card h3 { font-size: 24px; margin-bottom: 10px; color: var(--text-dark); font-weight: 700; letter-spacing: 1px;}
+.price { font-size: 52px; font-weight: 700; font-family: 'Fredoka'; margin-bottom: 30px; color: var(--text-dark); display: flex; justify-content: center; align-items: baseline; gap: 5px;}
+.price span { font-size: 16px; font-weight: 500; font-family: 'Poppins'; color: var(--text-light); }
+.price-card ul { margin-bottom: 40px; text-align: left; padding: 0; }
+.price-card ul li { margin-bottom: 18px; font-size: 15px; color: var(--text-dark); font-weight: 500; display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.04); padding-bottom: 15px;}
+.price-card ul li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0;}
+.price-card ul li i { 
+    color: white; margin-right: 15px; background: linear-gradient(135deg, #00D09C 0%, #059669 100%); 
+    border-radius: 50%; min-width: 24px; height: 24px; display: flex; justify-content: center; align-items: center; font-size: 11px;
+}
+
+/* =========================================
+   🌟 STATISTIK 🌟
+========================================= */
+.stats { padding: 40px 0; }
+.stats-box {
+    border-radius: 40px; padding: 50px; display: flex; justify-content: space-around; flex-wrap: wrap;
+    color: white; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #63B3ED 100%);
+    box-shadow: 0 20px 40px rgba(74, 144, 226, 0.3); border: 2px solid rgba(255,255,255,0.6);
+}
+.stats-box h3 { font-size: 50px; margin-bottom: 5px; color: var(--secondary); text-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.stats-box p { font-size: 16px; margin: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+/* =========================================
+   🌟 GALERI KEGIATAN 🌟
+========================================= */
+.kegiatan { padding: 80px 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item {
+    position: relative; border-radius: 25px; overflow: hidden;
+    border: 1px solid var(--glass-border); box-shadow: 0 10px 25px rgba(0,0,0,0.06); aspect-ratio: 4/3; cursor: pointer;
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(30, 41, 59, 0.9), transparent);
+    padding: 40px 20px 20px; color: white; transform: translateY(100%); transition: transform 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay { transform: translateY(0); }
+.gallery-overlay h4 { font-family: 'Fredoka', sans-serif; font-size: 18px; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+
+/* =========================================
+   🌟 TESTIMONI (PREMIUM KACA ES) 🌟
+========================================= */
+.testimoni { padding: 80px 0; overflow: hidden; /* FIX OVERFLOW */ }
+.swiper { padding: 40px 0 80px !important; }
+
+.testi-card {
+    background: var(--glass-bg); 
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    padding: 40px 35px; border-radius: 35px; border-bottom-right-radius: 10px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); 
+    border: 1px solid var(--glass-border); 
+    transition: 0.4s; position: relative; overflow: hidden; display: flex; flex-direction: column; text-align: left;
+}
+.quote-watermark { position: absolute; top: 15px; right: 25px; font-size: 90px; color: rgba(74, 144, 226, 0.05); z-index: 0; transform: rotate(-10deg); }
+.testi-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; position: relative; z-index: 1; }
+.testi-avatar {
+    width: 55px; height: 55px; border-radius: 50%; min-width: 55px;
+    background: linear-gradient(135deg, var(--primary), #8B5CF6); color: white; display: flex; justify-content: center; align-items: center;
+    font-size: 24px; font-family: 'Fredoka'; font-weight: 700; box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3); border: 2px solid white;
+}
+.testi-info h4 { color: var(--text-dark); font-size: 19px; font-weight: 700; margin-bottom: 3px;}
+.stars { font-size: 14px; letter-spacing: 2px;}
+.testi-card p { font-style: italic; color: var(--text-light); font-size: 16px; line-height: 1.8; position: relative; z-index: 1; margin: 0; font-weight: 500;}
+
+/* Animasi Coverflow Testimoni */
+.mySwiper .swiper-slide { opacity: 0.3; filter: blur(4px); transition: all 0.5s ease; pointer-events: none; transform: scale(0.9); }
+.mySwiper .swiper-slide-active { opacity: 1; filter: blur(0px); pointer-events: auto; box-shadow: 0 25px 60px rgba(74,144,226,0.1); transform: scale(1); border-color: white; background: rgba(255,255,255,0.9);}
+
+.swiper-button-next, .swiper-button-prev { color: var(--primary) !important; background: white; width: 45px !important; height: 45px !important; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #E2E8F0; }
+.swiper-button-next:after, .swiper-button-prev:after { font-size: 18px !important; font-weight: bold; }
+.swiper-button-next:hover, .swiper-button-prev:hover { background: var(--primary); color: white !important; }
+.swiper-pagination-bullet-active { background: var(--primary) !important; transform: scale(1.5); }
+
+/* Form Testimoni Kaca Mewah */
+.form-testi-container {
+    max-width: 600px; margin: 0 auto; 
+    background: var(--glass-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    padding: 40px; border-radius: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); text-align: center; 
+    border: 1px solid var(--glass-border);
+}
+.input-modern {
+    width: 100%; padding: 16px 20px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.8); border-radius: 15px; 
+    font-family: 'Poppins'; box-sizing: border-box; background: rgba(255,255,255,0.7); transition: 0.3s; font-size: 15px;
+}
+.input-modern:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(74,144,226,0.1); }
+
+/* --- FOOTER --- */
+footer {
+    background: var(--text-dark); color: white; padding: 70px 0 20px;
+    border-top-left-radius: 60px; border-top-right-radius: 60px; margin-top: 50px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.05); position: relative; z-index: 10;
+}
+.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-col p { color: #94A3B8; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+.footer-col h3 { font-size: 20px; margin-bottom: 20px; color: white; }
+.footer-col a { display: block; color: #94A3B8; margin-bottom: 12px; font-size: 14px; transition: 0.3s; }
+.footer-col a:hover { color: var(--secondary); padding-left: 8px; }
+.socials a { display: inline-block; background: rgba(255,255,255,0.05); width: 45px; height: 45px; line-height: 45px; text-align: center; border-radius: 50%; color: white; margin-right: 10px; font-size: 18px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);}
+.socials a:hover { background: var(--secondary); color: var(--text-dark); transform: translateY(-5px); border-color: var(--secondary);}
+.footer-col i { color: var(--secondary); margin-right: 10px; width: 15px; }
+.footer-bottom { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-bottom p { color: #64748B; font-size: 13px; margin: 0; }
+
+/* --- FLOAT WA --- */
+.float-wa {
+    position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+    width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    font-size: 38px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s;
+    animation: pulse 2s infinite; border: 3px solid white;
+}
+.float-wa:hover { transform: scale(1.1); color: white; box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6); }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+/* =========================================
+   RESPONSIVE MOBILE (Layar HP Max 768px)
+========================================= */
+@media (max-width: 768px) {
+    .feature-grid, .program-grid, .pricing-grid, .gallery-grid { grid-template-columns: 1fr; }
+    
+    .hero { flex-direction: column; text-align: center; padding: 40px 0; }
+    .hero-image { text-align: center; margin-top: 30px; }
+    .hero-text h1 { font-size: 40px; }
+    .hero-buttons { justify-content: center; flex-direction: column; }
+    
+    #nav-menu { display: none; }
+    .hamburger { display: block; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    
+    .price-card.popular { transform: scale(1); }
+    .price-card.popular:hover { transform: translateY(-10px); }
+
+    /* FIX: Lebar penuh untuk statistik di Mobile */
+    .stats-box { flex-direction: column; gap: 30px; border-radius: 35px; padding: 40px 20px; box-sizing: border-box; width: 100%; }
+    
+    /* FIX: Pastikan kartu slider tidak terpotong di HP */
+    .testi-card { padding: 30px 20px; margin: 0 auto; width: 100%; box-sizing: border-box;}
+    .quote-watermark { font-size: 60px; right: 15px; }
+
+    #nav-menu.active {
+        display: flex; flex-direction: column; position: absolute; top: 80px; left: 5%; width: 90%;
+        background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        padding: 25px 0; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; gap: 20px;
+        z-index: 9999; border: 1px solid rgba(255,255,255,0.5);
+    }
+    .float-wa { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 32px; z-index: 9999; }
+}
+
+/* =========================================
+   ADD-ON: PRO Z-PATTERN & REFINEMENT
+========================================= */
+
+/* 1. Memberi jarak "Bernapas" pada setiap section agar tidak sesak */
+section {
+    padding: 100px 0 !important;
+}
+
+/* 2. Memastikan semua kartu dalam grid memiliki tinggi yang sama (Align Stretch) */
+.feature-grid, .program-grid, .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: stretch; /* Semua kotak jadi sama tinggi */
+}
+
+/* 3. Tombol CTA Tambahan (Agar user tidak perlu scroll ke atas untuk daftar) */
+.cta-box {
+    text-align: center;
+    padding: 20px 0 50px 0;
+}
+
+/* 4. Optimasi Typografi untuk kesan "Mahal" */
+.title h2 {
+    font-size: 42px !important;
+    margin-bottom: 10px !important;
+}
+.title p {
+    font-size: 18px !important;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* 5. Sedikit sentuhan shadow agar kaca terlihat lebih dalam */
+.card, .feature-box, .price-card {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06) !important;
+}
